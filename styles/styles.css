@@ -1,6 +1,6 @@
 a:link {color: black;}      /* unvisited link */
 a:visited {color: black}   /* visited link */
-.word:hover {color: black; font-size: 1.5em; background: lightgrey;}     /* mouse over link */
+.word:hover {color: black!IMPORTANT; font-size: 1.2em; background: lightgrey;}     /* mouse over link */
 a:active {color: black;}    /* selected link */
 
 html {
@@ -110,23 +110,23 @@ button, input, span#first {
 }
 
 .redStarts{
-	border-left: #ff0000;
+	border-left: #D30000;
 	border-left-style: solid;
 }
 .blueStarts{
-	border-left: #00eeee;
+	border-left: #0584AE;
 	border-left-style: solid;
 }
 
 #redScore{
-	color: #ff0000;
+	color: #D30000;
 	font-size: 23px;
 	flex-grow: 1;
 	text-align: center;
 }
 #blueScore{
 	text-align: center;
-	color: #00eeee;
+	color: #0584AE;
 	font-size: 23px;
 	flex-grow: 1;
 }
