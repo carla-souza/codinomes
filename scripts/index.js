@@ -12,10 +12,12 @@ var spyMasterMode = false;
 var sessionData = [];
 var customData = [];
 
-var COLOR_RED = "#ff0000";
-var COLOR_YELLOW = "#ffff00";
-var COLOR_BLUE = "#00eeee";
-var COLOR_BLACK = "#808080";
+var COLOR_RED = "#D30000";
+var COLOR_RED2 = "#AA0000";
+var COLOR_YELLOW = "#EFF697";
+var COLOR_BLUE = "#0584AE";
+var COLOR_BLUE2 = "#046889";
+var COLOR_BLACK = "#505050";
 var COLOR_GREEN = "#009000";
 
 //init
@@ -83,7 +85,7 @@ function createNewGame() {
 		var word = sessionData[randomNumber];
 		removeItem(sessionData, randomNumber);
 		wordsSelected.push(word);
-		trs[i % 5] += "<div class=\"word\" id=\'" + i + "\' onclick=\"clicked(\'" + i + "\')\"><div><a href=\"#\"><span class=\"ada\"></span>" + word + "</a></div></div>";
+		trs[i % 5] += "<div class=\"word\" id=\'" + i + "\' onclick=\"clicked(\'" + i + "\')\"><div><span><span class=\"ada\"></span>" + word + "</span></div></div>";
 	}
 	//<a href="#"><span class="ada">Washington stimulates economic growth </span>Read me</a>
 	for (var i = 0; i < trs.length; i++) {
@@ -127,19 +129,22 @@ function createNewGame() {
 function clicked(value) {
 	if (spyMasterMode) {
 		//spymaster mode
-		document.getElementById(value).style.backgroundColor = COLOR_GREEN;
+		//document.getElementById(value).style.backgroundColor = COLOR_GREEN;
+		document.getElementById(value).style.color = teams[value];
 	} else {
 		//guessers mode
 		var word = wordsSelected[value];
 		if (document.getElementById("confirm").checked) {
 			if (window.confirm("Are sure you want to select '" + word + "'?")) {
 				document.getElementById(value).style.backgroundColor = teams[value];
+				document.getElementById(value).style.color = teams[value];
 				if (teams[value] == "black") {
 					document.getElementById(value).style.color = "white";
 				}
 			}
 		} else {
 			document.getElementById(value).style.backgroundColor = teams[value];
+			document.getElementById(value).style.color = teams[value];
 			if (teams[value] == "black") {
 				document.getElementById(value).style.color = "white";
 			}
@@ -156,20 +161,20 @@ function updateScore() {
 		redScore = 0;
 		$('div.word').each(function() {
 			var color = $(this).css('background-color');
-			if (color === 'rgb(0, 238, 238)') {
+			if (color === 'rgb(5, 132, 174)') {
 				blueScore++;
 			}
-			if (color === 'rgb(255, 0, 0)') {
+			if (color === 'rgb(211, 0, 0)') {
 				redScore++;
 			}
 		});
 	} else {
 		$('div.word').each(function() {
 			var color = $(this).css('background-color');
-			if (color === 'rgb(0, 238, 238)') {
+			if (color === 'rgb(5, 132, 174)') {
 				blueScore--;
 			}
-			if (color === 'rgb(255, 0, 0)') {
+			if (color === 'rgb(211, 0, 0)') {
 				redScore--;
 			}
 		});
